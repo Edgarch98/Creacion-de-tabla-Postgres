@@ -1,0 +1,43 @@
+/*==============================================================*/
+/* DATABASE:BDMATERNIDAD                                              */
+/*==============================================================*/
+
+CREATE DATABASE BDMATERNIDAD
+
+/*==============================================================*/
+/* Table: CLIENTE                                               */
+/*==============================================================*/
+create table CLIENTE (
+   ID_CLIENTE           int                  not null,
+   CLIENTE_NOMBRE       varchar(50)          null,
+   CLIENTE_APELLIDO     varchar(50)          null,
+   CLIENTE_CEDULA       varchar(50)          null,
+   CLIENTE_DIRECCION    varchar(50)          null,
+   CLIENTE_CORREO       varchar(50)          null,
+   constraint PK_CLIENTE primary key (ID_CLIENTE)
+)
+
+/*==============================================================*/
+/* Table: PEDIATRA                                              */
+/*==============================================================*/
+create table PEDIATRA (
+   ID_PEDIATRA          int                  not null,
+   P_NOMBRE             varchar(50)          null,
+   P_APELLIDO           varchar(50)          null,
+   P_TELEFONO           varchar(50)          null,
+   P_CEDULA             varchar(50)          null,
+   P_DIRECCION          varchar(50)          null,
+   constraint PK_PEDIATRA primary key (ID_PEDIATRA)
+)
+
+/*==============================================================*/
+/* Table: Centro de salud                                        */
+/*==============================================================*/
+create table centrodesalud (
+   ID_PEDIATRA          int                  not null,
+   ID_CLIENTE           int                  not null,
+   C_DIRECCION          varchar(50)          null,
+   C_CORREO             varchar(50)          null,
+   C_TELEFONO           varchar(50)          null,
+   constraint PK_centrodesalud primary key (ID_PEDIATRA, ID_CLIENTE)
+)
